@@ -21,9 +21,9 @@ word_list = user_string.split(' ')
 # Iteration to make alternating words in list upper then lower.
 for index, word in enumerate(word_list):
     if index % 2 == 0:
-        word_list[index] = word.upper()
-    else:
         word_list[index] = word.lower()
+    else:
+        word_list[index] = word.upper()
 
 # Create string by joining word_list with a single space separator.
 alternating_words = ' '.join(word_list)
