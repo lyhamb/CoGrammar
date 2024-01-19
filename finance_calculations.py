@@ -23,18 +23,22 @@ if user_selection == 'investment':
     
     if interest == 'simple':
         interest_paid =round(amount * (1 + (rate/100)*time), 2)
+        print("="*53)
+        print(f"Simple interest paid: £{interest_paid}")
     elif interest == 'compound':
         interest_paid = round(amount * math.pow((1 + (rate/100)), time), 2)
-        
-    print("="*53)
-    print(f"Interest paid: £{interest_paid}")
-
+        print("="*53)
+        print(f"Compound interest paid: £{interest_paid}")
+    else:
+        print("Not recognised. Please enter either 'simple or 'compound'")
+    
 # Bond Option.
 elif user_selection == 'bond':
     print("="*15, "Bond Calculator", "="*15)
     value = int(input("What is the present value of the house (£) ? ..."))
     rate = float(input("What is the interest rate (%) on the bond? ..."))
     time = int(input("How many month will it take to repay the bond? ..."))
+
 
     # Calculate monthly rate as decimal (i).
     i = rate/1200
@@ -43,3 +47,5 @@ elif user_selection == 'bond':
 
     print("="*47)
     print(f"You will pay £{repayment} per month.")
+else:
+    print("Not recognised. Please enter either 'investment' or 'bond'")
