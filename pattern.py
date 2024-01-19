@@ -1,7 +1,7 @@
-### For Loops - Practical Task 1 ###
+# ========= For Loops - Practical Task 1 ========= #
 
-for star in range(0,10):
-    if star < 5:
-        print('*'*star)
+for row_num in range(1, 10):
+    if row_num <= 5:
+        print('*'*row_num)
     else:
-        print('*'*(10-star))
+        print('*'*(10 - row_num))
