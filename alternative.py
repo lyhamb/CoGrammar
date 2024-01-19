@@ -1,4 +1,4 @@
-# === String Handling - Practical Task 1 === #
+# ======== String Handling - Practical Task 1 ======== #
 
 # Get a string from the user.
 user_string = input("Please enter any string. ")
