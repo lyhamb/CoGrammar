@@ -2,7 +2,7 @@
 
 # I thought of two ways of doing this, I'm not sure which is the best!
 
-# Implementation 1
+# Implementation 1 - best solution. 
 
 sum = 0
 count = 0
@@ -11,6 +11,18 @@ while user_input != -1:
     sum += user_input
     count += 1
     user_input = float(input("Please enter the next number (-1 to exit) ... "))
+ 
+print(f"The average of the numbers is: {round(sum/count, 2)}")
+
+### Improvements based on Feedback ###
+
+sum = 0
+count = -1
+user_input = 0
+while user_input != -1:    
+    sum += user_input
+    count += 1
+    user_input = float(input("Please enter the a number (-1 to exit) ... "))
  
 print(f"The average of the numbers is: {round(sum/count, 2)}")
 
