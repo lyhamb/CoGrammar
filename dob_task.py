@@ -28,7 +28,7 @@ else:
     for name in names:
         print(' '.join(name))
 
-    # Repeat the same process birthdates list. \n  included to separate the sections.
+    # Repeat the same process for birthdates list. \n  included to separate the sections.
     print("\n\033[1mBirthdate \033[0m")
     for date in birthdates:
         print(' '.join(date))
