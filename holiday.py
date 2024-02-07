@@ -24,7 +24,7 @@ def plane_cost(city_flight):
         return 1240.00
     else:
         print("City not found.")
-        
+
 
 def car_rental(rental_days):
     '''Takes number of days (int) returns total rental price (float)'''
@@ -33,7 +33,7 @@ def car_rental(rental_days):
 
 
 def holiday_costs(hotel, plane, car, num_nights, rental_days, city_flight):
-    ''' Outputs cost breakdown and returns total holiday cost as float'''
+    ''' Outputs cost breakdown and returns total holiday cost (float)'''
     hotel_total = hotel(num_nights)
     car_total = plane(rental_days)
     plane_total = car(city_flight)
@@ -45,22 +45,38 @@ def holiday_costs(hotel, plane, car, num_nights, rental_days, city_flight):
     return hotel_total + car_total + plane_total
 
 
+def get_valid_int(bounds=None):
+    while True:
+        try:
+            user_input = int(input())
+            if bounds is not None:
+                lower, upper = bounds
+                if bounds and user_input > lower and user_input <= upper:
+                    return user_input
+                else:
+                    print(f"Out of range: Please enter a number from {
+                          lower}-{upper}")
+            else:
+                return user_input
+        except ValueError:
+            print("Invalid input. Please enter a whole number.")
+
+
 def menu(city_list):
     ''' Displays menu, collects user inputs and returns holiday_costs '''
     for index, city in enumerate(city_list, 1):
         print(index, ':', city)
-    print("Please choose a destination from the list below.")
-    while True:
-        user_index = int(input())
-        break
-    city_flight = city_list[user_index - 1]
-    num_nights = int(
-        input(f"How many nights would you like to stay in {city_flight}?"))
-    rental_days = int(input("How many days would you to hire a car for?" +
-                            "(Enter 0 if you don't need a car"))
 
-    print(f"The total cost of the holiday is: £{
-        holiday_costs(hotel_cost, plane_cost, car_rental, num_nights, rental_days, city_flight)}")
+    print("Please choose a destination from the list below.")
+    user_index = get_valid_int(bounds=(1, 4))
+    city_flight = city_list[user_index - 1]
+    print(f"How many nights would you like to stay in {city_flight}?")
+    num_nights = get_valid_int()
+    print("How many days would you to hire a car for? (Enter 0 if you don't need a car)")
+    rental_days = get_valid_int()
+    print("The total cost of the holiday is: £",
+          holiday_costs(hotel_cost, plane_cost, car_rental, num_nights, rental_days, city_flight))
+
 
 # Call menu function to start program.
 menu(cities)
