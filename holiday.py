@@ -72,7 +72,7 @@ def menu(city_list):
     for index, city in enumerate(city_list, 1):
         print(index, ':', city)
 
-    # Get data from user and call holiday_costs function to output cost breakdown and total cost. 
+    # Get data from user and call holiday_costs function to output cost breakdown and total cost.
     print("Please choose a destination (1-4) from the list below.")
     user_index = get_valid_int(bounds=(1, 4))
     city_flight = city_list[user_index - 1]
