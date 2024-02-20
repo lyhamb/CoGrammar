@@ -80,10 +80,11 @@ def menu(city_list):
     num_nights = get_valid_int()
     print("How many days would you like to hire a car for? (Enter 0 if you don't need a car)")
     rental_days = get_valid_int()
-    print("The total cost of the holiday is: " +
-          f"£{holiday_costs(hotel_cost, plane_cost, car_rental,
-                            num_nights, city_flight, rental_days):.2f}" +
-          "\n----------------------------------------------")
+
+     # Call the holiday_cost function and output the total with formatting. 
+    holiday_total = holiday_costs(hotel_cost, plane_cost, car_rental,num_nights, city_flight, rental_days)
+    print(f"The total cost of the holiday is: £{holiday_total:.2f}")
+    print("----------------------------------------------")
 
 
 # Call menu function to start program if file is executed.
