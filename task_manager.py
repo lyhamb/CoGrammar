@@ -13,28 +13,33 @@ DATETIME_STRING_FORMAT = "%Y-%m-%d"
 
 # =====function declarations=========
 def reg_user():
-    new_username = input("New Username: ")
-    # - Request input of a new password
-    new_password = input("New Password: ")
+    while True:
+        new_username = input("New Username: ")
+        for user in username_password.keys():
+            if new_username == user:
+                print("User already exists!")
+                break
+        # - Request input of a new password
+        new_password = input("New Password: ")
 
-    # - Request input of password confirmation.
-    confirm_password = input("Confirm Password: ")
+        # - Request input of password confirmation.
+        confirm_password = input("Confirm Password: ")
 
-    # - Check if the new password and confirmed password are the same.
-    if new_password == confirm_password:
-        # - If they are the same, add them to the user.txt file,
-        print("New user added")
-        username_password[new_username] = new_password
+        # - Check if the new password and confirmed password are the same.
+        if new_password == confirm_password:
+            # - If they are the same, add them to the user.txt file,
+            print("New user added")
+            username_password[new_username] = new_password
 
-        with open("user.txt", "w") as out_file:
-            user_data = []
-            for k in username_password:
-                user_data.append(f"{k};{username_password[k]}")
-                out_file.write("\n".join(user_data))
-
-        # - Otherwise you present a relevant message.
-    else:
-        print("Passwords do no match")
+            with open("user.txt", "w") as out_file:
+                user_data = []
+                for k in username_password:
+                    user_data.append(f"{k};{username_password[k]}")
+                    out_file.write("\n".join(user_data))
+            break
+            # - Otherwise you present a relevant message.
+        else:
+            print("Passwords do no match")
 
 def add_task():
     task_username = input("Name of person assigned to task: ")
