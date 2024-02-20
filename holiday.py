@@ -82,7 +82,8 @@ def menu(city_list):
     rental_days = get_valid_int()
 
      # Call the holiday_cost function and output the total with formatting. 
-    holiday_total = holiday_costs(hotel_cost, plane_cost, car_rental,num_nights, city_flight, rental_days)
+    holiday_total = holiday_costs(hotel_cost, plane_cost, car_rental,
+                                  num_nights, city_flight, rental_days)
     print(f"The total cost of the holiday is: £{holiday_total:.2f}")
     print("----------------------------------------------")
 
